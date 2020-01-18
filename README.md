@@ -16,6 +16,6 @@ pressing the solve button which will automatically solve the game board.
 The program uses the backtracking algorithm to create and solve the game 
 board. 
 
-#### Bugs:
+##### Bugs:
 V1 - Insufficient filters on manual board creation: the program currently 
 does not check to see whether the entered board only has one possible solution.
