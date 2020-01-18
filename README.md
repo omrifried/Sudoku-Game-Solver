@@ -1,5 +1,6 @@
-# Name: Omri Fried
-# Last Edit Date: 01/17/2020
+# Project: Sudoku Solver
+##### Author: Omri Fried
+##### Last Edit Date: 01/17/2020
 Project Description: 
 The purpose of this assignment was to create a client-server 
  socket connection via TCP. In this assignment, we created a 
