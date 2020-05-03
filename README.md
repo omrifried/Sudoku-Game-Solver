@@ -4,9 +4,9 @@
 ##### Current Edition: V1
 ##### Project Description: 
 The Java based applet can be used to play the game of Sudoku. The program
-allows a user to either enter an existing game board, or create a random
+allows a user to either enter an existing game board or create a random
 board automatically. If an automatic board is chosen, the user will have
-the ability to select the game difficulty from easy, medium or hard.
+the ability to select the game difficulty from easy, medium, or hard.
 
 Once the board is created, the user can solve the puzzle directly in the
 applet. The user can then check their solution to determine if they solved
