@@ -1,6 +1,6 @@
 # Project: Sudoku Solver
 ##### Author: Omri Fried
-##### Last Edit Date: 01/17/2020
+##### Last Edit Date: 08/26/2020
 ##### Current Edition: V2
 ##### Project Description: 
 The Java based applet can be used to play the game of Sudoku. The program
