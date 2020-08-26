@@ -1,11 +1,16 @@
-
+/**
+ * Create a base grid that has the given underlying Sudoku Grid. The purpose of this class
+ * is to create base grid that can be adjusted (played on) without altering the actual solution
+ * board (i.e. playing won't change the actual solution board).
+ * 
+ */
 public class SudokuBaseGrid
 {
     private SudokuGridGenerator sudokuGrid;
     private int[][] baseGrid;
 
     /**
-     * Create a base grid that has the given underlying Sudoku Grid. The
+     * Create a base grid that has the given underlying Sudoku Grid. 
      * 
      * @param SudokuGridGenerator the Sudoku Grid to use for for this baseGrid.
      */

@@ -17,6 +17,12 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.text.NumberFormatter;
 
+/**
+ * This class creates the actual GUI that the game will be played on. This is similar
+ * to the SudokuBoardFrame class but is edited for manual board creation.
+ * 
+ * The class extends JFrame and creates an editable GUI.
+ */
 public class SudokuManualBoard extends JFrame
 {
     private static final int GRID_SIZE = 9;
@@ -60,6 +66,11 @@ public class SudokuManualBoard extends JFrame
     private SudokuBaseGrid baseGrid;
     private Container board;
 
+    /**
+     * Create base GUI and initialize all elements on the GUI
+     * 
+     * @param the baseGrid that will be filled out
+     */
     public SudokuManualBoard(SudokuBaseGrid baseGrid)
     {
         this.baseGrid = baseGrid;
@@ -102,8 +113,15 @@ public class SudokuManualBoard extends JFrame
         setVisible(true);
     }
 
+    /**
+     * Set the buttons for the GUI at the top of the GUI and make them clickable.
+     * 
+     * @param row  the row index
+     * @param col  the column index
+     */
     private void setButtons(int row, int col)
     {
+        // Create a finish button that the user can click to validate their board and play on it.
         if (row == 0 && col == 4)
         {
             completeGame = new JButton("Finish");
@@ -143,6 +161,12 @@ public class SudokuManualBoard extends JFrame
 
     }
 
+    /**
+     * Set the frame of the GUI.
+     * 
+     * @param row  the row index
+     * @param col  the column index
+     */
     private void setFrame(int row, int col)
     {
         // Row values are shifted to start at 1 since row 0 contains the buttons.
@@ -184,6 +208,10 @@ public class SudokuManualBoard extends JFrame
         }
     }
     
+    /**
+     * Set the actual entry fields so that they can be editable - these are the tiles 
+     * in the Sudoku game.
+     */
     private SudokuGridGenerator setBoard()
     {
         SudokuGridGenerator gridGen = baseGrid.getGridGen();
@@ -204,6 +232,11 @@ public class SudokuManualBoard extends JFrame
         return gridGen;
     }
     
+    /**
+     * Check that the board that the user entered is valid.
+     * 
+     * @return a boolean to determine if it is viable or not.
+     */
     private boolean validBoard()
     {
         setBoard();
@@ -215,6 +248,10 @@ public class SudokuManualBoard extends JFrame
     }
 
 
+    /**
+     * Override the NumberFormatter to convert the strings into integers
+     * in the Sudoku cells
+     */
     private class SudokuNumberFormatter extends NumberFormatter
     {
         public SudokuNumberFormatter(NumberFormat format)

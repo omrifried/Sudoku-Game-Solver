@@ -16,6 +16,11 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.text.NumberFormatter;
 
+/**
+ * This class creates the actual GUI that the game will be played on.
+ * 
+ * The class extends JFrame and creates an editable GUI.
+ */
 public class SudokuBoardFrame extends JFrame
 {
     private static final int GRID_SIZE = 9;
@@ -29,6 +34,7 @@ public class SudokuBoardFrame extends JFrame
     private static final Font NUMBER_FONT = new Font("Monospaced", Font.BOLD, 20);
     private static final Font BUTTON_FONT = new Font("Monospaced", Font.BOLD, 10);
 
+    // Create the GUI.
     private static final Border MIDDLE_BORDER = BorderFactory.createMatteBorder(0, 0, 1, 1, Color.GRAY);
     private static final Border RIGHT_BOTTOM_EDGE_BORDER = BorderFactory.createMatteBorder(0, 0, 5, 5, Color.BLACK);
     private static final Border BOTTOM_BORDER = BorderFactory.createCompoundBorder(
@@ -61,6 +67,11 @@ public class SudokuBoardFrame extends JFrame
     private SudokuBaseGrid baseGrid;
     private Container board;
 
+    /**
+     * Create base GUI and initialize all elements on the GUI
+     * 
+     * @param the baseGrid that will be filled out
+     */
     public SudokuBoardFrame(SudokuBaseGrid baseGrid)
     {
         this.baseGrid = baseGrid;
@@ -75,6 +86,7 @@ public class SudokuBoardFrame extends JFrame
         numberFormatter.setMinimum(SudokuGridGenerator.MIN_NUM);
         numberFormatter.setMaximum(SudokuGridGenerator.MAX_NUM);
 
+        // Set the first row to buttons and the remaining squares as cells.
         for (int row = 0; row <= GRID_SIZE; row++)
         {
             for (int col = 0; col < GRID_SIZE; col++)
@@ -99,8 +111,15 @@ public class SudokuBoardFrame extends JFrame
         setVisible(true);
     }
 
+    /**
+     * Set the buttons for the GUI at the top of the GUI and make them clickable.
+     * 
+     * @param row  the row index
+     * @param col  the column index
+     */
     private void setButtons(int row, int col)
     {
+        // Create a reset button that clears the board.
         if (row == 0 && col == 0)
         {
             resetGame = new JButton("Reset");
@@ -121,6 +140,7 @@ public class SudokuBoardFrame extends JFrame
             });
             board.add(resetGame);
         }
+        // Create a solver button that solves the game using backtracking in SudokuGridGenerator.
         else if (row == 0 && col == 4)
         {
             solveGame = new JButton("Solve");
@@ -143,6 +163,7 @@ public class SudokuBoardFrame extends JFrame
             });
             board.add(solveGame);
         }
+        // Create a check button that determines whether the user entered the correct number in their solution.
         else if (row == 0 && col == 8)
         {
             checkSolution = new JButton("Check");
@@ -176,6 +197,13 @@ public class SudokuBoardFrame extends JFrame
 
     }
 
+    /**
+     * Set the actual entry fields so that they can be editable - these are the tiles 
+     * in the Sudoku game.
+     * 
+     * @param row  the row index
+     * @param col  the column index
+     */
     private void setField(int row, int col)
     {
         if (baseGrid.getBaseGrid()[row - 1][col] == SudokuGridGenerator.EMPTY_SQUARE)
@@ -193,6 +221,12 @@ public class SudokuBoardFrame extends JFrame
         sudokuCells[row - 1][col].setFont(NUMBER_FONT);
     }
 
+    /**
+     * Set the frame of the GUI.
+     * 
+     * @param row  the row index
+     * @param col  the column index
+     */
     private void setFrame(int row, int col)
     {
         // Row values are shifted to start at 1 since row 0 contains the buttons.
@@ -281,6 +315,11 @@ public class SudokuBoardFrame extends JFrame
 //        return false;
 //    }
     
+    /**
+     * Convert the user entered string values into integers.
+     * 
+     * @return the new board with integer values
+     */
     private int[][] boardFrameInteger()
     {
         int[][] gameBoard = new int[GRID_SIZE][GRID_SIZE];
@@ -300,8 +339,10 @@ public class SudokuBoardFrame extends JFrame
         return gameBoard;
     }
     
-    
-
+    /**
+     * Override the NumberFormatter to convert the strings into integers
+     * in the Sudoku cells
+     */
     private class SudokuNumberFormatter extends NumberFormatter
     {
         private static final long serialVersionUID = 1L;

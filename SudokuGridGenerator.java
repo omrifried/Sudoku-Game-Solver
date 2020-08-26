@@ -2,7 +2,7 @@ import java.util.*;
 import java.awt.Point;
 
 /**
- * SudokuGrid class
+ * SudokuGridGenerator class
  * 
  * This is the underlying data for the Sudoku board. The class generates the
  * Sudoku board using the populateFirstBoard, populateRemainingBoard, and
